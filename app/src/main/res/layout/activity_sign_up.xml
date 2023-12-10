@@ -61,6 +61,7 @@
             android:ems="10"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
+            android:textColor="#AF895B"
             tools:targetApi="o" />
 
         <TextView
@@ -80,6 +81,7 @@
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:textColor="#AF895B"
             tools:targetApi="o" />
 
         <CheckBox

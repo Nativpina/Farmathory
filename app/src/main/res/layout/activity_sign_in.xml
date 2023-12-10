@@ -85,7 +85,7 @@
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColor="#5E4607"
+            android:textColor="#AF895B"
             tools:targetApi="o" />
 
         <Button
