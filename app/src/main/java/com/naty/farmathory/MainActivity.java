@@ -1,6 +1,9 @@
 package com.naty.farmathory;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +12,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button addPillButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,5 +21,13 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setContentView(R.layout.activity_main);
+        addPillButton = findViewById(R.id.button_add_pill);
+        addPillButton.setOnClickListener(view -> openAddPillActivity());
     }
+
+    private void openAddPillActivity() {
+        Intent intent = new Intent(MainActivity.this, AddPillActivity.class);
+        startActivity(intent);
+    }
+
 }

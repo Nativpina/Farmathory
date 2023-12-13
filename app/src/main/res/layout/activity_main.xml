@@ -21,12 +21,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.587" />
 
+    <Button
+        android:id="@+id/button_add_pill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Medicamento"
+        android:layout_centerInParent="true" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="414dp"
         android:layout_height="395dp"
         app:srcCompat="@drawable/pastillas"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="51dp" />
+        tools:layout_editor_absoluteY="51dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
