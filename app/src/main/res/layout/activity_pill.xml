@@ -49,53 +49,23 @@
 
         </androidx.cardview.widget.CardView>
 
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="#F37272"
-        android:text="Ajustes"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/editTextText"
+    <Button
+        android:id="@+id/btnPill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text" />
+        android:backgroundTint="@color/rose"
+        android:text="Medicamentos">
 
-    <Button
-        android:id="@+id/button"
+    </Button>
+    
+    <ListView
+        android:id="@+id/lstPastillas"
         android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:backgroundTint="@color/beige"
-        android:text=" Medicamentos"
-        android:textColor="#573D11"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:backgroundTint="@color/pink"
-        android:text="Recordatorio"
-        android:textColor="#E2005F"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:backgroundTint="#BA9468"
-        android:text="Eliminar"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    </ListView>
 
 </LinearLayout>

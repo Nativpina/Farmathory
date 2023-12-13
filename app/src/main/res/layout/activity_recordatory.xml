@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEFDC" >
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="288dp"
+        android:layout_height="66dp"
+        android:backgroundTint="@color/rose"
+        android:text="Confirmar"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="371dp"
+        android:background="@color/pink"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="234dp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:text="Nombre"
+            android:textColor="#E2005F"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:text="Cantidad"
+            android:textColor="#E2005F"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:text="Hora"
+            android:textColor="#E2005F"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:text="Fecha                              caducidad "
+            android:textColor="#E2005F"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="84dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#F88A8A"
+        app:cardCornerRadius="10dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="79dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#BA9468"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteX="253dp"
+        tools:layout_editor_absoluteY="2dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#F88A8A"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="77dp"
+            android:layout_height="50dp"
+            app:cardBackgroundColor="#F88A8A"
+            app:cardCornerRadius="10dp"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="0dp">
+
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="91dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#BA9468"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="2dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="84dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#F88A8A"
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteX="332dp"
+        tools:layout_editor_absoluteY="2dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="376dp"
+        android:layout_height="147dp"
+        android:text="Añadir/modificar Pastillas"
+        android:textAlignment="center"
+        android:textColor="#E2005F"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
