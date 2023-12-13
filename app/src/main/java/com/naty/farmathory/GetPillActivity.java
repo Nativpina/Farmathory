@@ -31,7 +31,7 @@ public class GetPillActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
         pillController = new PillController();
-        getButton.setOnClickListener(view -> getPill());
+        getButton.setOnClickListener(view -> getAllPills());
         mDatabase = FirebaseDatabase.getInstance().getReference("pills");
         getAllPills();
     }
@@ -53,7 +53,7 @@ public class GetPillActivity extends AppCompatActivity  {
     }
 
     private void getAllPills() {
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Pill> pills = new ArrayList<>();
