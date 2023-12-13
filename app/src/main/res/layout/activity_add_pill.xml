@@ -1,71 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEFDC"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:orientation="horizontal">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="77dp"
-            android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="91dp"
-            android:layout_height="50dp"
-            app:cardBackgroundColor="#BA9468"
-            app:cardCornerRadius="10dp">
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="84dp"
-            android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp">
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="79dp"
-            android:layout_height="50dp"
-            app:cardBackgroundColor="#BA9468"
-            app:cardCornerRadius="10dp">
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="79dp"
-            android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp">
-
-        </androidx.cardview.widget.CardView>
-
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnPill"
+    <EditText
+        android:id="@+id/editText_pill_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rose"
-        android:text="Medicamentos">
+        android:hint="Nombre de la pastilla"
+        android:inputType="text" />
 
-    </Button>
-    
-    <ListView
-        android:id="@+id/lstPastillas"
+    <EditText
+        android:id="@+id/editText_dosage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_pill_name"
+        android:hint="Dosificación"
+        android:inputType="number" />
 
-    </ListView>
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_dosage"
+        android:layout_alignParentEnd="true"
+        android:text="Agregar" />
 
-</LinearLayout>
+</RelativeLayout>
