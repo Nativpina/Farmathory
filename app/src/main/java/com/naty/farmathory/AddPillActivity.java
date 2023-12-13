@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class AddPillActivity extends AppCompatActivity {
 
     private EditText pillNameEditText;
