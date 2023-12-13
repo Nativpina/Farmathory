@@ -45,17 +45,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
                     currentUser = mAuth.getCurrentUser();
 
-
                     if (currentUser != null && currentUser.isEmailVerified()) {
-
-
                         System.out.println("Email Verified : " + currentUser.isEmailVerified());
-
                         Intent MainActivity = new Intent(WelcomeActivity.this, MainActivity.class);
                         startActivity(MainActivity);
                         WelcomeActivity.this.finish();
-
-
                     }
                 }
             });
@@ -77,22 +71,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 Intent signUpIntent = new Intent(WelcomeActivity.this, SignUpActivity.class);
 
                 startActivity(signUpIntent);
-
-
             }
         });
-
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
                 Intent signInIntent = new Intent(WelcomeActivity.this, SignInActivity.class);
-
                 startActivityForResult(signInIntent, REQUEST_EXIT);
-
-
             }
         });
 

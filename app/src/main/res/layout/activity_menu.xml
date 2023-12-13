@@ -55,8 +55,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="544dp"
+        android:layout_height="623dp"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="329dp"
@@ -93,15 +99,6 @@
                     android:textSize="50sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="-2dp"
-                    tools:layout_editor_absoluteY="51dp"
-                    android:layout_width="414dp"
-                    android:layout_height="395dp"
-                    app:srcCompat="@drawable/pastillas" />
-
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
@@ -116,12 +113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3mm"
-                    android:backgroundTint="#FFEFDC"
-                    android:text="Editar Pastillas"
-                    android:textAlignment="center"
-                    android:textColor="#75643B"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="Editar Pastillas" />
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -135,33 +127,18 @@
 
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/button_add_pill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Agregar Medicamento" />
-
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
-        android:backgroundTint="#E45D5D"
-        android:text="+"
-        android:textAlignment="center"
-        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="73dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button3"
             android:layout_width="124dp"
             android:layout_height="match_parent"
+            android:layout_gravity="left"
             android:backgroundTint="@color/beige"
             android:foregroundGravity="center_vertical|right"
             android:text="Pagina de Inicio"
@@ -169,7 +146,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/btnPill"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -180,8 +157,8 @@
 
         <Button
             android:id="@+id/button12"
-            android:layout_width="92dp"
-            android:layout_height="73dp"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
             android:layout_weight="1"
             android:backgroundTint="@color/beige"
             android:text="Ajuste"
