@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        setContentView(R.layout.activity_main);
-        addPillButton = findViewById(R.id.button_add_pill);
+        setContentView(R.layout.activity_menu);
+        addPillButton = findViewById(R.id.btnPill);
         addPillButton.setOnClickListener(view -> openAddPillActivity());
     }
 

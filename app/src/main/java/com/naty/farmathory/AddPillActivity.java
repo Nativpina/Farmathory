@@ -3,6 +3,7 @@ package com.naty.farmathory;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,6 +36,7 @@ public class AddPillActivity extends AppCompatActivity {
         Pill pill = new Pill(pillName, dosage);
         pillController.addPill(pill);
 
-
+        Toast.makeText(getApplicationContext(), "Pill Created", Toast.LENGTH_LONG).show();
+        setContentView(R.layout.activity_menu);
     }
 }
