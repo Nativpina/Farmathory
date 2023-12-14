@@ -15,6 +15,8 @@ public class AddPillActivity extends AppCompatActivity {
 
     private PillController pillController;
 
+    private String pill_key = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,26 +29,40 @@ public class AddPillActivity extends AppCompatActivity {
         pillController = new PillController();
 
         addButton.setOnClickListener(view -> addPill());
+
+        Bundle extrasIn = getIntent().getExtras();
+        if (extrasIn != null) {
+            pill_key = extrasIn.getString("pill_key");
+            String pill_name = extrasIn.getString("pill_name");
+            int pill_dosage = extrasIn.getInt("pill_dosage");
+
+            pillNameEditText.setText(pill_name);
+            dosageEditText.setText(String.valueOf(pill_dosage));
+        }
     }
 
     private void addPill() {
         Boolean isError = false;
 
-        String pillName = pillNameEditText.getText().toString().trim();
-        int dosage = 0;
+        String pill_name = pillNameEditText.getText().toString().trim();
+        int pill_dosage = 0;
         try {
-            dosage = Integer.parseInt(dosageEditText.getText().toString().trim());
+            pill_dosage = Integer.parseInt(dosageEditText.getText().toString().trim());
         } catch (Exception e) {
             dosageEditText.setError("Valor Invalido");
         }
 
-        if (pillName.equals("")) {
+        if (pill_name.equals("")) {
             pillNameEditText.setError("Campo Obligatorio");
-        } else if (dosage <= 0) {
+        } else if (pill_dosage <= 0) {
             dosageEditText.setError("Valor Invalido");
         } else {
-            Pill pill = new Pill(pillName, dosage);
-            pillController.addPill(pill);
+            Pill pill = new Pill(pill_name, pill_dosage, pill_key);
+            if (pill_key.equals("")) {
+                pillController.addPill(pill);
+            } else {
+                pillController.editPill(pill);
+            }
 
             Toast.makeText(getApplicationContext(), "Pill Created", Toast.LENGTH_LONG).show();
             // setContentView(R.layout.activity_menu);

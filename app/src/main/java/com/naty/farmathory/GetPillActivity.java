@@ -1,5 +1,7 @@
 package com.naty.farmathory;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +23,8 @@ import com.naty.farmathory.adapter.PillAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetPillActivity extends AppCompatActivity implements PillController.OnGetPillListener {
+public class GetPillActivity extends AppCompatActivity implements PillController.OnGetPillListener, PillAdapter.OnGetPillAdapter {
+    Context myContext = this;
     PillAdapter adPills;
     RecyclerView rvPills;
 
@@ -32,7 +35,7 @@ public class GetPillActivity extends AppCompatActivity implements PillController
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pill);
 
-        adPills = new PillAdapter();
+        adPills = new PillAdapter(myContext);
 
         int numberOfColumns = 1;
         RecyclerView.LayoutManager lm_products = new GridLayoutManager(getApplicationContext(), numberOfColumns);
@@ -88,6 +91,20 @@ public class GetPillActivity extends AppCompatActivity implements PillController
     @Override
     public void onGetPillFailure(String errorMessage) {
         showToast("Error al obtener las pastillas: " + errorMessage);
+    }
+
+    @Override
+    public void onEditPill(Pill pill) {
+        Intent intent = new Intent(GetPillActivity.this, AddPillActivity.class);
+        intent.putExtra("pill_key", pill.getKey());
+        intent.putExtra("pill_name", pill.getPillName());
+        intent.putExtra("pill_dosage", pill.getDosage());
+        startActivity(intent);
+    }
+
+    @Override
+    public void onDeletePill(Pill pill) {
+        pillController.deletePill(pill);
     }
 }
 

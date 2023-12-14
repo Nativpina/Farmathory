@@ -31,15 +31,24 @@ public class PillController {
     public void addPill(Pill pill) {
         String key = mDatabase.push().getKey();
         if (key != null) {
+            pill.setKey(key);
             mDatabase.child(key).setValue(pill);
         }
+    }
+
+    public void editPill(Pill pill) {
+        mDatabase.child(pill.getKey()).setValue(pill);
+    }
+
+    public void deletePill(Pill pill) {
+        mDatabase.child(pill.getKey()).removeValue();
     }
 
     public void setListener(Context myContext) {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                pills.clear();
+                pills = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Pill pill = snapshot.getValue(Pill.class);
                     if (pill != null) {
@@ -58,7 +67,6 @@ public class PillController {
 
     public interface OnGetPillListener {
         void onGetPillSuccess(List<Pill> pills);
-
         void onGetPillFailure(String errorMessage);
     }
 }
