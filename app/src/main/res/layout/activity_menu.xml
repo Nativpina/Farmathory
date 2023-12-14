@@ -13,43 +13,41 @@
         android:layout_height="52dp"
         android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="77dp"
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp" />
+            android:background="@drawable/rounded_corner_left"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="91dp"
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            app:cardBackgroundColor="#BA9468"
-            app:cardCornerRadius="10dp">
+            android:background="@drawable/rounded_corner_right"/>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="84dp"
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp">
+            android:background="@drawable/rounded_corner_left"/>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="79dp"
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            app:cardBackgroundColor="#BA9468"
-            app:cardCornerRadius="10dp">
+            android:background="@drawable/rounded_corner_right"/>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="79dp"
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            app:cardBackgroundColor="#F88A8A"
-            app:cardCornerRadius="10dp">
+            android:background="@drawable/rounded_corner_left"/>
 
-        </androidx.cardview.widget.CardView>
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_corner_right"/>
 
     </LinearLayout>
 
@@ -58,11 +56,19 @@
         android:layout_height="623dp"
         android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@color/red"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
         <Button
             android:id="@+id/button13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/red" />
+            android:backgroundTint="@color/red"
+            android:visibility="gone"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="329dp"

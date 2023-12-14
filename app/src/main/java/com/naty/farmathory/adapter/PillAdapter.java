@@ -11,9 +11,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.naty.farmathory.Pill;
-import com.naty.farmathory.PillController;
 import com.naty.farmathory.R;
+import com.naty.farmathory.model.Pill;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +35,7 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
         TextView pillName;
         TextView pillDosage;
         TextView btnPlus;
+        TextView btnPill;
 
         public MyViewHolder(View view) {
             super(view);
@@ -43,6 +43,7 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
             pillName = view.findViewById(R.id.pillName);
             pillDosage = view.findViewById(R.id.pillDosage);
             btnPlus = view.findViewById(R.id.btnPlus);
+            btnPill = view.findViewById(R.id.btnPill);
         }
     }
 
@@ -84,6 +85,10 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
 
             dialog.show();
         });
+
+        holder.btnPill.setOnClickListener(view -> {
+            ((OnGetPillAdapter) myContext).onSelPill(item);
+        });
     }
 
     @Override
@@ -98,5 +103,6 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.MyViewHolder> 
     public interface OnGetPillAdapter {
         void onEditPill(Pill pill);
         void onDeletePill(Pill pill);
+        void onSelPill(Pill pill);
     }
 }

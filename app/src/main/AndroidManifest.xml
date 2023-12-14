@@ -16,6 +16,7 @@
         <activity android:name="com.naty.farmathory.SignUpActivity" />
         <activity android:name=".AddPillActivity"/>
         <activity android:name=".GetPillActivity"/>
+        <activity android:name=".DatePillActivity"/>
         <activity android:name="com.naty.farmathory.WelcomeActivity"
             android:exported="true">
             <intent-filter>

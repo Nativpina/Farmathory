@@ -3,24 +3,17 @@ package com.naty.farmathory;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.naty.farmathory.adapter.PillAdapter;
+import com.naty.farmathory.controller.PillController;
+import com.naty.farmathory.model.Pill;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GetPillActivity extends AppCompatActivity implements PillController.OnGetPillListener, PillAdapter.OnGetPillAdapter {
@@ -48,36 +41,7 @@ public class GetPillActivity extends AppCompatActivity implements PillController
 
         pillController = new PillController();
         pillController.setListener(this);
-
-        // mDatabase = FirebaseDatabase.getInstance().getReference().child("pills");
-        // getAllPills();
     }
-
-    /*
-    private void getAllPills() {
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Pill> pills = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Pill pill = snapshot.getValue(Pill.class);
-                    if (pill != null) {
-                        pills.add(pill);
-                    }
-                }
-
-                // Manejar la lista de pastillas
-                // handlePillsList(pills);
-                adPills.setItems(pills);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                showToast("Error al obtener las pastillas: " + databaseError.getMessage());
-            }
-        });
-    }
-    */
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -105,6 +69,13 @@ public class GetPillActivity extends AppCompatActivity implements PillController
     @Override
     public void onDeletePill(Pill pill) {
         pillController.deletePill(pill);
+    }
+
+    @Override
+    public void onSelPill(Pill pill) {
+        Intent intent = new Intent(GetPillActivity.this, DatePillActivity.class);
+        intent.putExtra("pill", pill);
+        startActivity(intent);
     }
 }
 
