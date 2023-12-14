@@ -136,20 +136,19 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="124dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
             android:backgroundTint="@color/beige"
-            android:foregroundGravity="center_vertical|right"
             android:text="Pagina de Inicio"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnPill"
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/beige"
             android:text="Medicamentos"
             android:textAlignment="center"
@@ -157,11 +156,11 @@
 
         <Button
             android:id="@+id/button12"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
             android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/beige"
-            android:text="Ajuste"
+            android:text="Todas los Medicamentos"
             android:textAlignment="center"
             android:textStyle="bold" />
 

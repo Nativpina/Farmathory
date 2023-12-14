@@ -7,53 +7,52 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.naty.farmathory.adapter.PillAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetPillActivity extends AppCompatActivity  {
+public class GetPillActivity extends AppCompatActivity implements PillController.OnGetPillListener {
+    PillAdapter adPills;
+    RecyclerView rvPills;
 
-    private DatabaseReference mDatabase;
-
-    private EditText pillNameEditText;
-    private Button getButton;
-
-    private PillController pillController;
+    PillController pillController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pill);
+
+        adPills = new PillAdapter();
+
+        int numberOfColumns = 1;
+        RecyclerView.LayoutManager lm_products = new GridLayoutManager(getApplicationContext(), numberOfColumns);
+
+        rvPills = this.findViewById(R.id.rvPills);
+        rvPills.setHasFixedSize(true);
+        rvPills.setLayoutManager(lm_products);
+        rvPills.setItemAnimator(new DefaultItemAnimator());
+        rvPills.setAdapter(adPills);
 
         pillController = new PillController();
-        getButton.setOnClickListener(view -> getPill());
-        mDatabase = FirebaseDatabase.getInstance().getReference("pills");
-        getAllPills();
+        pillController.setListener(this);
+
+        // mDatabase = FirebaseDatabase.getInstance().getReference().child("pills");
+        // getAllPills();
     }
 
-    private void getPill() {
-
-        String pillName = pillNameEditText.getText().toString().trim();
-        pillController.getPill(pillName, new PillController.OnGetPillListener() {
-            @Override
-            public void onGetPillSuccess(Pill pill) {
-                // Manejar la pastilla obtenida exitosamente
-            }
-
-            @Override
-            public void onGetPillFailure(String errorMessage) {
-                // Manejar el fallo al obtener la pastilla
-            }
-        });
-    }
-
+    /*
     private void getAllPills() {
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Pill> pills = new ArrayList<>();
@@ -65,7 +64,8 @@ public class GetPillActivity extends AppCompatActivity  {
                 }
 
                 // Manejar la lista de pastillas
-                handlePillsList(pills);
+                // handlePillsList(pills);
+                adPills.setItems(pills);
             }
 
             @Override
@@ -74,16 +74,20 @@ public class GetPillActivity extends AppCompatActivity  {
             }
         });
     }
-
-    private void handlePillsList(List<Pill> pills) {
-        // Aquí puedes manejar la lista de pastillas como lo necesites
-        for (Pill pill : pills) {
-            showToast("Nombre: " + pill.getPillName() + ", Dosificación: " + pill.getDosage());
-        }
-    }
+    */
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onGetPillSuccess(List<Pill> pills) {
+        adPills.setItems(pills);
+    }
+
+    @Override
+    public void onGetPillFailure(String errorMessage) {
+        showToast("Error al obtener las pastillas: " + errorMessage);
     }
 }
 

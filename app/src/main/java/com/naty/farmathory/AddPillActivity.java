@@ -30,13 +30,27 @@ public class AddPillActivity extends AppCompatActivity {
     }
 
     private void addPill() {
+        Boolean isError = false;
+
         String pillName = pillNameEditText.getText().toString().trim();
-        int dosage = Integer.parseInt(dosageEditText.getText().toString().trim());
+        int dosage = 0;
+        try {
+            dosage = Integer.parseInt(dosageEditText.getText().toString().trim());
+        } catch (Exception e) {
+            dosageEditText.setError("Valor Invalido");
+        }
 
-        Pill pill = new Pill(pillName, dosage);
-        pillController.addPill(pill);
+        if (pillName.equals("")) {
+            pillNameEditText.setError("Campo Obligatorio");
+        } else if (dosage <= 0) {
+            dosageEditText.setError("Valor Invalido");
+        } else {
+            Pill pill = new Pill(pillName, dosage);
+            pillController.addPill(pill);
 
-        Toast.makeText(getApplicationContext(), "Pill Created", Toast.LENGTH_LONG).show();
-        setContentView(R.layout.activity_menu);
+            Toast.makeText(getApplicationContext(), "Pill Created", Toast.LENGTH_LONG).show();
+            // setContentView(R.layout.activity_menu);
+            finish();
+        }
     }
 }
