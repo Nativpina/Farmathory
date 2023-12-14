@@ -18,12 +18,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        setContentView(R.layout.activity_menu);
+
         addPillButton = findViewById(R.id.btnPill);
         addPillButton.setOnClickListener(view -> openAddPillActivity());
+
         allPillButton = findViewById(R.id.button12);
         allPillButton.setOnClickListener(view -> openAllPillActivity());
     }

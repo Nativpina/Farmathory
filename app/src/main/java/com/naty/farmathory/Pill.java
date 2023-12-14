@@ -5,6 +5,10 @@ public class Pill {
     private String pillName;
     private int dosage;
 
+    public Pill() {
+        // Default constructor required for calls to DataSnapshot.getValue(Pill.class)
+    }
+
     public Pill(String pillName, int dosage) {
         this.pillName = pillName;
         this.dosage = dosage;
